@@ -31,6 +31,51 @@
 
 <body>
 
+<!--Firebase -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCSoKcys9inCQLTT4ig-2Hq_FQdzrrrEr8",
+    authDomain: "contact-joyanta-live.firebaseapp.com",
+    databaseURL: "https://contact-joyanta-live.firebaseio.com",
+    projectId: "contact-joyanta-live",
+    storageBucket: "contact-joyanta-live.appspot.com",
+    messagingSenderId: "826610387114",
+    appId: "1:826610387114:web:35e263334379df007ba8d3",
+    measurementId: "G-TGPWWSWX5P"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  function writeData(){
+    firebase.database().ref("User").set({
+      name : document.getElementByID("name").value,
+      email : document.getElementByID("email").value,
+      subject : document.getElementByID("subject").value,
+      message : document.getElementByID("message").value,
+
+
+  });
+
+
+
+
+  }
+
+
+  
+</script>
+
+  
+
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container-fluid d-flex justify-content-between align-items-center">
@@ -140,7 +185,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit" onclick = "writeData()">Send Message</button></div>
             </form>
 
           </div>
